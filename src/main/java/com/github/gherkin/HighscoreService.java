@@ -1,6 +1,9 @@
 package com.github.gherkin;
 
+import java.util.List;
+
 public interface HighscoreService {
     void save(Highscore highscore);
-    Highscore get(int id);
+    List<Highscore> getTop(int mapId);
+
 }
