@@ -22,15 +22,10 @@ public class HighscoreResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Highscore postHighScore(String nick, Float score, Integer mapId) {
-        if(nick == null || score == null || mapId == null) {
+    public Highscore postHighScore(Highscore highscore) {
+        if(highscore.getName() == null || highscore.getScore() == null || highscore.getId() == null) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
-
-        Highscore highscore = new Highscore();
-        highscore.setNick(nick);
-        highscore.setScore(score);
-        highscore.setMapId(mapId);
 
         service.save(highscore);
         return highscore;
@@ -46,5 +41,4 @@ public class HighscoreResource {
 
         return service.getTop(mapId);
     }
-
 }
