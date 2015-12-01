@@ -1,18 +1,9 @@
 package com.github.gherkin;
 
 public class Highscore {
-    private int id;
     private String nick;
     private float score;
     private int mapId;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNick() {
         return nick;
