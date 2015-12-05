@@ -17,7 +17,9 @@ public class HighscoreServiceMemoryImpl implements HighscoreService {
     public List<Highscore> getTop(final int mapId) {
         synchronized(storage) {
             return storage.stream()
-                    .filter(h -> h.getMapId() == mapId)
+                    .filter(h -> h.getId() == mapId)
+                    .sorted((h1, h2) -> h2.getScore() - h1.getScore())
+                    .limit(5)
                     .collect(Collectors.toList());
         }
     }
