@@ -1,8 +1,13 @@
 package com.github.gherkin;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Highscore {
     private String name;
     private Integer score;
+    @Id
     private Integer id;
 
     public String getName() {
